@@ -1,0 +1,13 @@
+.player,
+.list,
+.message
+{
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.station {
+  display: block;
+  margin: 5px auto;
+}

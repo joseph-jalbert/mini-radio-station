@@ -1,20 +1,24 @@
 # TuneIn Lite
 
-This is a minimal radio application that pulls down a list of stations from an API and allows the user to listen to each station. The stations have associated tag data, which is used to generate a list of suggested stations the user may prefer. The categories 'music' and 'news' were given extra weight, as they represent a broader hierarchy than genre-specific tags. Other factors in choosing a recommendation are the popularity of the station and its reliability. With additional time. There are several things I would add and change in the application:
+This is a minimal radio application that pulls down a list of stations from an API and allows the user to listen to each station. The stations have associated tag data, which is used to generate a list of suggested stations the user may prefer, based on their previous selections. The categories 'music' and 'news' were given extra weight, as they represent a broader hierarchy than genre-specific tags. Other factors in choosing a recommendation are the popularity of the station and its reliability. 
+
+The application can be running locally using either `npm start` or `yarn start`. Given more development time, here are some things I would add or change:
 
 **Refactoring** - move all string constants into a dedicated directory so they can be used throughout various parts of the application
 
 **Unit Testing** - ensure the building blocks of the app do what they are supposed to do
 
-**Accessibility** - more semantic markup, usage of aria- attributes to ensure good functionality with a screen reader
+**Accessibility** - more semantic markup, usage of aria- attributes to ensure functionality with a screen reader
 
-**Styling** - use a CSS in JS package, such as Styled Components, for a more compassable approach to styling
+**Error Handling** - Create a dedicated error banner component to be used throughout the App
 
-**Global data store** - storing the user's listening preferences in a global store, so they could be easily accessed
+**Styling** - use a CSS-in-JS library, such as Styled Components, for a more composable approach to styling
+
+**Global data store** - Store the user's listening preferences in a global store so they can easily accessed
 
 throughout the application as it grows. Also could be used for storing error information
 
-**Customized REST client** for more flexible data fetching - I opted for the popular library 'react-request' as it offers good amount of feature out of the box. Writing a customized client would allow for more granular control over HTTP requests would enable things like pagination, retries, more customized error handling.
+**Customized REST client** for more flexible data fetching - I opted for the popular library 'react-request' as it offers good amount of features out of the box. Writing a customized client would allow for more granular control over HTTP requests, to help with implementing things like pagination, retries, more customized error handling.
 
 **Internationalization** - using a library such as react-intl to enable multiple language support
 

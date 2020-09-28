@@ -14,7 +14,6 @@ const Container = () => {
   };
 
   const STATIONS_URL = 'https://s3-us-west-1.amazonaws.com/cdn-web.tunein.com/stations.json';
-  const failureMessage = <div className="message">Sorry, something is wrong with TuneIn lite. Please try again later.</div>;
 
   return (
     <Fetch
@@ -26,12 +25,7 @@ const Container = () => {
         const { data: stationsRaw = undefined } = data ? data : { data: undefined};
         // if parsed data is an array, pass each station object through factory function
         const stations = Array.isArray(stationsRaw) ? stationsRaw.map(station => createStationFromRawData(station)): undefined;
-        if (stations) {
-          setStations(stations);
-        }
-        else {
-          setError(true);
-        }
+        stations ? setStations(stations) : setError(true);
       }}
     >
       {({ fetching, failed, data }) => {
@@ -40,7 +34,7 @@ const Container = () => {
           }
 
           if (failed || isError) {
-            return failureMessage;
+            return <div className="message">Sorry, something is wrong with TuneIn lite. Please try again later.</div>;;
           }
 
           if (data) {
@@ -57,8 +51,6 @@ const Container = () => {
               </>
             );
           }
-
-          return failureMessage;
         }
       }
     </Fetch>

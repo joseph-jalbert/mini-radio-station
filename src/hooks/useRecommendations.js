@@ -27,8 +27,8 @@ const useRecommendations = stations => {
       cachedPreferenceScores = {
         ...cachedPreferenceScores,
         [tag]: ['news', 'music'].includes(tag) ? 
-          Math.ceil((preferenceScores[tag] + 3)) :
-          Math.ceil((preferenceScores[tag] + 2)),
+          preferenceScores[tag] + 3 :
+          preferenceScores[tag] + 2,
       };
     });
     updatePreferenceScores(cachedPreferenceScores);

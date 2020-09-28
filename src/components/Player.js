@@ -8,7 +8,7 @@ const Player = ({station, stationError}) => {
   useEffect(() => {
     const htmlPlayer = playerRef.current;
     return () => {
-      // stop audio stream on cleanup
+      // stop audio stream on unmount
       htmlPlayer.src='';
     };
   }, [station]);

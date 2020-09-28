@@ -1,10 +1,12 @@
 # TuneIn Lite
 
-This is a minimal radio application that pulls down a list of stations from an API and allows the user to listen to each station. The stations have associated tag data, which is used to generate a list of suggested stations the user may prefer, based on their previous selections. The categories 'music' and 'news' were given extra weight, as they represent a broader hierarchy than genre-specific tags. Other factors in choosing a recommendation are the popularity of the station and its reliability. 
+This is a minimal radio application that pulls down a list of stations from an API and allows the user to listen to each station. Stations are listed in order of their popularity. Each station has associated tag data, which is used to generate a list of suggested stations the user may prefer, based on their previous selections, as well as popularity and reliability. The categories 'music' and 'news' were given extra weight, as they represent a broader hierarchy than genre-specific tags.
 
 The application can be running locally using either `npm start` or `yarn start`. Given more development time, here are some things I would add or change:
 
-**Refactoring** - move all string constants into a dedicated directory so they can be used throughout various parts of the application
+**Refactoring** - move all string constants into a dedicated directory so they can be used throughout various parts of the application.
+
+**Data safety** - create a schema to validate response data
 
 **Unit Testing** - ensure the building blocks of the app do what they are supposed to do
 
@@ -18,9 +20,11 @@ The application can be running locally using either `npm start` or `yarn start`.
 
 throughout the application as it grows. Also could be used for storing error information
 
-**Customized REST client** for more flexible data fetching - I opted for the popular library 'react-request' as it offers good amount of features out of the box. Writing a customized client would allow for more granular control over HTTP requests, to help with implementing things like pagination, retries, more customized error handling.
+**Customized REST client** for more flexible data fetching - I opted for the popular library 'react-request' as it offers good amount of features out of the box. Writing a customized client would allow for more granular control over HTTP requests, to help with implementing things like pagination, retries, more customized error handling, as well as make it easier to separate fetch logic from the display layer.
 
 **Internationalization** - using a library such as react-intl to enable multiple language support
+
+**PropTypes** - use PropTypes for validation
 
 **Additional features** - ability to sort stations, filter, search
 
